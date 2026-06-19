@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+:root {
+  --brand-red: #A61E2A;
+  --brand-gold: #E5A93B;
+  --brand-gold-glow: #FAD777;
+  --brand-gold-deep: #8E5B10;
+  
+  --coal-dark: #121212;
+  --coal-card: #1A1A1A;
+  --coal-text: #F5F5F5;
+  --coal-muted: #A3A3A3;
+  --border-subtle: rgba(255, 255, 255, 0.05);
+}
+
+.dark {
+  --coal-dark: #121212;
+  --coal-card: #1A1A1A;
+  --coal-text: #F5F5F5;
+  --coal-muted: #A3A3A3;
+  --border-subtle: rgba(255, 255, 255, 0.05);
+}
+
+.light {
+  --coal-dark: #F7F4EE;
+  --coal-card: #FFFDF8;
+  --coal-text: #2A2A2A;
+  --coal-muted: #6B6B65;
+  --border-subtle: rgba(0, 0, 0, 0.08);
+}
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cinzel", Georgia, serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  
+  --color-brand-red: var(--brand-red);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-gold-glow: var(--brand-gold-glow);
+  --color-brand-gold-deep: var(--brand-gold-deep);
+  --color-coal-dark: var(--coal-dark);
+  --color-coal-card: var(--coal-card);
+  --color-coal-text: var(--coal-text);
+  --color-soft-white: var(--coal-text);
+}
+
+@layer base {
+  body {
+    background-color: var(--coal-dark);
+    color: var(--coal-text);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    transition: background-color 0.4s cubic-bezier(0.16, 1, 0.3, 1), color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Custom selection accent */
+  ::selection {
+    background-color: rgba(166, 30, 42, 0.35);
+    color: #FFFFFF;
+  }
+}
+
+/* Light mode architectural overrides */
+.light body {
+  background-color: var(--coal-dark) !important;
+  color: var(--coal-text) !important;
+}
+
+/* Light mode backgrounds mapping */
+.light .bg-coal-dark,
+.light .bg-black,
+.light .bg-zinc-950,
+.light .bg-zinc-950\/50,
+.light .bg-neutral-950,
+.light .bg-zinc-950/50,
+.light .bg-[#121212] {
+  background-color: var(--coal-dark) !important;
+}
+
+.light .bg-coal-card,
+.light .bg-[#1C1C1E],
+.light .bg-[#19191B]/80,
+.light .bg-[#19191B]\/80,
+.light .bg-[#1C1C1E]/65,
+.light .bg-[#1C1C1E]\/65,
+.light .bg-zinc-900,
+.light .bg-zinc-900\/60,
+.light .bg-zinc-900\/80,
+.light .bg-zinc-900/60,
+.light .bg-zinc-900/80,
+.light .bg-neutral-900,
+.light .glass-panel {
+  background-color: var(--coal-card) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+.light .bg-neutral-950\/40,
+.light .bg-neutral-950/40,
+.light .bg-zinc-950\/20,
+.light .bg-zinc-950/20,
+.light .bg-zinc-950\/40,
+.light .bg-zinc-950/40 {
+  background-color: rgba(229, 225, 216, 0.45) !important;
+}
+
+/* Light mode text colors mapped to charcoal */
+.light h1,
+.light h2,
+.light h3,
+.light h4,
+.light h5,
+.light h6,
+.light .text-white,
+.light .text-zinc-100,
+.light .text-zinc-200,
+.light .text-zinc-300,
+.light .text-gray-100,
+.light .text-gray-200,
+.light .text-gray-300 {
+  color: var(--coal-text) !important;
+}
+
+.light p,
+.light li,
+.light .text-zinc-400,
+.light .text-zinc-500,
+.light .text-gray-400,
+.light .text-gray-500 {
+  color: var(--coal-muted) !important;
+}
+
+.light .text-brand-gold,
+.light .group-hover\:text-brand-gold:hover {
+  color: var(--brand-gold) !important;
+}
+
+/* Form input, select, textarea styles in light mode */
+.light select,
+.light textarea,
+.light input {
+  background-color: var(--coal-card) !important;
+  color: var(--coal-text) !important;
+  border-color: var(--border-subtle) !important;
+}
+
+.light select:focus,
+.light textarea:focus,
+.light input:focus {
+  border-color: var(--brand-gold) !important;
+}
+
+/* Light mode badge/chip overrides */
+.light .bg-white\/5,
+.light .bg-white/5 {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+  color: var(--coal-text) !important;
+}
+
+.light .bg-brand-gold\/10,
+.light .bg-brand-gold/10 {
+  background-color: rgba(229, 169, 59, 0.12) !important;
+  color: var(--brand-gold) !important;
+}
+
+.light .bg-brand-gold {
+  background-color: var(--brand-gold) !important;
+  color: #121212 !important;
+}
+
+/* Light Mode Borders adjustment */
+.light .border-white\/5,
+.light .border-white\/10,
+.light .border-zinc-800,
+.light .border-zinc-700,
+.light .border-white/5,
+.light .border-white/10 {
+  border-color: var(--border-subtle) !important;
+}
+
+/* Theme transition animation curves */
+.transition-colors {
+  transition-property: background-color, border-color, color, fill, stroke, box-shadow;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  transition-duration: 400ms;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #121212;
+}
+::-webkit-scrollbar-thumb {
+  background: #27272A;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-red);
+}
+
+/* Glassmorphism utility classes */
+.glass-panel {
+  background: rgba(18, 18, 22, 0.65);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.glass-panel-light {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.glass-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-brand-gold);
+  box-shadow: 0 10px 30px -10px rgba(216, 194, 138, 0.25);
+}
+
+/* Premium Glow Effects */
+.glow-red {
+  box-shadow: 0 0 25px -5px rgba(166, 30, 42, 0.45);
+}
+
+.glow-text-red {
+  text-shadow: 0 0 12px rgba(166, 30, 42, 0.6);
+}
+
+.glow-text-gold {
+  text-shadow: 0 0 12px rgba(216, 194, 138, 0.45);
+}
+
+/* Background Animated Gradient */
+@keyframes gradientBg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.animated-bg {
+  background-size: 200% 200%;
+  animation: gradientBg 15s ease infinite;
+}
+
+/* Typing animation accessory */
+@keyframes blink {
+  50% { border-color: transparent }
+}
+.typing-cursor {
+  border-right: 2px solid var(--color-brand-gold);
+  animation: blink .75s step-end infinite;
+}
+
+/* Custom Particle elements style */
+.bg-particle {
+  pointer-events: none;
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(166, 30, 42, 0.15) 0%, transparent 70%);
+}
